@@ -102,8 +102,8 @@ class Sprayer extends Enemy {
         } else {
             this.value = 5;
         }
-        this.timetilshoot = 90;
-        this.timebetweenshots = this.timetilshoot;
+        this.timetilshoot = 1;
+        this.timebetweenshots = 90;
         this.id = currentEnemyID;
         currentEnemyID++;
     }
