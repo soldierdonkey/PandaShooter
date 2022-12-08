@@ -108,9 +108,10 @@ var upgradetimes = 0;
 function setup() {
     guns = [new Pistol(0)];
     characters.push(new Character("Default","a normal egg", function(){}));
-    characters.push(new Character("Speedy","a fast egg, +50% movement speed but -20% armor", function(){
+    characters.push(new Character("Assassin","Assassin, starts with pistol, +50% movement speed, +100% damage, -75% armor, -5 health", function(){
         playerStats.movementspeed = 1.5;
-        playerStats.armor = 0.8;
+        playerStats.armor = 0.25;
+        healthbar.maxhealth = 5;
     }));
     characters.push(new Character("Bullet Rain","an egg that really like bullets, start with an SMG, +50% attack speed, -50% damage, -2 health", function(){
         guns = [new SMG(0)];
@@ -138,12 +139,13 @@ function setup() {
             playerStats.attackdelay = 0.8;
             playerStats.maxguns  = 3;
             }));
-            characters.push(new Character("Knight","heavily armored egg, starts with a pistol, +100% armor, -100% dodge, -50% attack speed, +10% damage", function(){
+            characters.push(new Character("Knight","heavily armored egg, starts with a pistol, -20% movement speed, +100% armor, -100% dodge, -50% attack speed, +10% damage", function(){
                 gun = [new Pistol(0)];
                 playerStats.armor = 2;
                 playerStats.dodge = -1;
                 playerStats.attackdelay = 0.5;
                 playerStats.damage = 1.1;
+                playerStats.movementspeed = 0.8;
                 }));
                 characters.push(new Character("Poor Egg","Poor but Strong, starts with a SMG, +10% armor, +10% dodge, +10% damage, +10% attack speed, +3 health, 35% less coins", function(){
                     gun = [new SMG(0)];
