@@ -138,6 +138,23 @@ function setup() {
             playerStats.attackdelay = 0.8;
             playerStats.maxguns  = 3;
             }));
+            characters.push(new Character("Knight","heavily armored egg, starts with a pistol, +100% armor, -100% dodge, -50% attack speed, +10% damage", function(){
+                gun = [new Pistol(0)];
+                playerStats.armor = 2;
+                playerStats.dodge = -1;
+                playerStats.attackdelay = 0.5;
+                playerStats.damage = 1.1;
+                }));
+                characters.push(new Character("Poor Egg","Poor but Strong, starts with a SMG, +10% armor, +10% dodge, +10% damage, +10% attack speed, +3 health, 35% less coins", function(){
+                    gun = [new SMG(0)];
+                    playerStats.armor = 1.1;
+                    playerStats.dodge = 1.1;
+                    playerStats.attackdelay = 1.1;
+                    playerStats.damage = 1.1;
+                    healthbar.currenthealth = 13;
+                    healthbar.maxhealth = 13;
+                    playerStats.coinmulti = 0.65;
+                    }));
         characters.push(new Character("God","Literally God for testing you can play around with it if you want, Starts on round 15, Starts with no a pistol that can't shoot, has 100% dodge chance, has -100000000 coins", function(){
             gun = [];
             coins -= 100000000
