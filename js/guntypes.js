@@ -15,49 +15,49 @@ class Shotgun extends Gun {
     shoot() {
         if (playerStats.exploding) {
             if (Math.random() < 0.25) {
-                game.data.push(new BombProjectile(8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.13, 0.17))));
+                game.data.push(new BombProjectile(8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.13, 0.17))));
             } else {
-                game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.13, 0.17))));
+                game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.13, 0.17))));
             }
             if (Math.random() < 0.25) {
-                game.data.push(new BombProjectile(8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.7, 0.12))));
+                game.data.push(new BombProjectile(8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.7, 0.12))));
             } else {
-                game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.7, 0.12))));
+                game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.7, 0.12))));
             }
             if (Math.random() < 0.25) {
-                game.data.push(new BombProjectile(8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.02, 0.05))));
+                game.data.push(new BombProjectile(8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.02, 0.05))));
             } else {
-                game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.02, 0.05))));
+                game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.02, 0.05))));
             }
             if (Math.random() < 0.25) {
-                game.data.push(new BombProjectile(8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(-0.25, 0.25))));
+                game.data.push(new BombProjectile(8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(-0.25, 0.25))));
             } else {
-                game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(-0.25, 0.25))));
+                game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(-0.25, 0.25))));
             }
             if (Math.random() < 0.25) {
-                game.data.push(new BombProjectile(8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.02, 0.05))));
+                game.data.push(new BombProjectile(8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.02, 0.05))));
             } else {
-                game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.02, 0.05))));
+                game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.02, 0.05))));
             }
             if (Math.random() < 0.25) {
-                game.data.push(new BombProjectile(8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.7, 0.12))));
+                game.data.push(new BombProjectile(8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.7, 0.12))));
             } else {
-                game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.7, 0.12))));
+                game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.7, 0.12))));
             }
 
             if (Math.random() < 0.25) {
-                game.data.push(new BombProjectile(8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.13, 0.17))));
+                game.data.push(new BombProjectile(8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.13, 0.17))));
             } else {
-                game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.13, 0.17))));
+                game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.13, 0.17))));
             }
         }
-        game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.13, 0.17))));
-        game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.7, 0.12))));
-        game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.02, 0.05))));
-        game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(-0.25, 0.25))));
-        game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.02, 0.05))));
-        game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.7, 0.12))));
-        game.data.push(new Projectile(10, 8, 25, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.13, 0.17))));
+        game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.13, 0.17))));
+        game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.7, 0.12))));
+        game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(0.02, 0.05))));
+        game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle + random(-0.25, 0.25))));
+        game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.02, 0.05))));
+        game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.7, 0.12))));
+        game.data.push(new Projectile(10, 8, 25 * playerStats.bulletspeed, this.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle - random(0.13, 0.17))));
     }
 }
 class God extends Gun {
