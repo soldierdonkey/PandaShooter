@@ -21,7 +21,7 @@ class Upgrade {
         textLeading(23)
         textSize(25);
         textAlign(LEFT);
-        if(this.name.includes("Panda Hero")){
+        if(this.name.includes("Panda Hero") || this.name.includes("of a True Vampire")){
             textSize(18);
             textLeading(20);
         }

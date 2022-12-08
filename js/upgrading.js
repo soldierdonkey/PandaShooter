@@ -49,6 +49,23 @@ var vampireupgrades = [
         playerStats.damage -= 0.2;
         playerStats.regeneration -= 0.5;
     }, 1, 500, 2),
+    new Upgrade("Armor of a True Vampire", "Legendary Set Upgrade", "orange", "+5% lifesteal, +75% armor, -20% dodge, -20% damage", "N/A", function() {
+        playerStats.lifesteal += 0.05;
+        playerStats.armor += 0.75;
+        playerStats.dodge -= 0.2;
+        playerStats.damage -= 0.2;
+    }, 1, 1000, 10000),
+    new Upgrade("Heart of a True Vampire", "Legendary Set Upgrade", "orange", "+5% lifesteal, +50 max health, -20% damage, -10% dodge", "N/A", function() {
+        healthbar.maxhealth += 50;
+        playerStats.lifesteal += 0.05;
+        playerStats.damage -= 0.2;
+    }, 1, 1000, 10000),
+    new Upgrade("Weaponry of a True Vampire", "Legendary Set Upgrade", "orange", "+25% lifesteal, +5% armor, -40% damage, -15% dodge", "N/A", function() {
+        playerStats.lifesteal += 0.25;
+        playerStats.armor += 0.05;
+        playerStats.damage -= 0.4;
+        playerStats.dodge -= 0.15;
+    }, 1, 1000, 10000),
 ]
 var upgradeoptions = [
     new Upgrade("Faster Shots", "Basic Upgrade", "lightgrey", "Upgrade's your gun's attack speed by 8%", "N/A", function() {
@@ -108,7 +125,7 @@ var upgradeoptions = [
         }
         playerStats.regeneration -= 1.5;
         if (healthbar.currenthealth > healthbar.maxhealth) { healthbar.currenthealth = healthbar.maxhealth; }
-    }, 1, 350, 5),
+    }, 1, 350, 5000),
     new Upgrade("Obsidian Heart", "Epic Set Upgrade", "lightblue", "-5% lifesteal, but +20 Health and -50% health regen", "N/A", function() {
         playerStats.lifesteal -= 0.05;
         healthbar.maxhealth += 20;
@@ -164,7 +181,8 @@ var upgradeoptions = [
     }, 10000, 60, 20),
     new Upgrade("Faster Regeneration", "Basic Upgrade", "lightgrey", "Increases Health Regeneration by 25%", "N/A", function() {
         playerStats.regeneration += 0.25;
-    }, 10000, 75, 20)
+    }, 10000, 75, 20),
+   
 ];
 var currentupgradechoices = [];
 var upgrading = false;
