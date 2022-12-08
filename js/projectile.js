@@ -5,7 +5,7 @@ class Projectile extends GameObject {
         this.x = x;
         this.y = y;
         this.angle = angle;
-        this.speed = speed * playerStats.bulletspeed;
+        this.speed = speed;
         this.lifespan = lifespan;
         this.img = img || bulletimg;
     }
