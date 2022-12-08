@@ -110,6 +110,7 @@ function setup() {
     characters.push(new Character("Default","a normal egg", function(){}));
     characters.push(new Character("Assassin","Assassin, starts with pistol, +50% movement speed, +100% damage, -75% armor, -5 health", function(){
         playerStats.movementspeed = 1.5;
+        playerStats.damage = 2;
         playerStats.armor = 0.25;
         healthbar.maxhealth = 5;
         healthbar.currenthealth = 5;
@@ -134,14 +135,14 @@ function setup() {
         playerStats.bulletspeed = 2;
         }));
         characters.push(new Character("Rich Egg","rich and lazy, starts with 100 coins, 2x coin gain, starts with a pistol, 3 guns max, -20% attack speed", function(){
-            gun = [new Pistol(0)];
+            guns = [new Pistol(0)];
             playerStats.coinmulti = 2;
             coins = 100;
             playerStats.attackdelay = 0.8;
             playerStats.maxguns  = 3;
             }));
             characters.push(new Character("Knight","heavily armored egg, starts with a pistol, -20% movement speed, +100% armor, -100% dodge, -50% attack speed, +10% damage", function(){
-                gun = [new Pistol(0)];
+                guns = [new Pistol(0)];
                 playerStats.armor = 2;
                 playerStats.dodge = -1;
                 playerStats.attackdelay = 0.5;
@@ -149,7 +150,7 @@ function setup() {
                 playerStats.movementspeed = 0.8;
                 }));
                 characters.push(new Character("Poor Egg","Poor but Strong, starts with a SMG, +10% armor, +10% dodge, +10% damage, +10% attack speed, +3 health, 35% less coins", function(){
-                    gun = [new SMG(0)];
+                    guns = [new SMG(0)];
                     playerStats.armor = 1.1;
                     playerStats.dodge = 0.1;
                     playerStats.attackdelay = 1.1;
