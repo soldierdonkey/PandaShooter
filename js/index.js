@@ -112,6 +112,7 @@ function setup() {
         playerStats.movementspeed = 1.5;
         playerStats.armor = 0.25;
         healthbar.maxhealth = 5;
+        healthbar.currenthealth = 5;
     }));
     characters.push(new Character("Bullet Rain","an egg that really like bullets, start with an SMG, +50% attack speed, -50% damage, -2 health", function(){
         guns = [new SMG(0)];
