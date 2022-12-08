@@ -148,7 +148,7 @@ function setup() {
                 characters.push(new Character("Poor Egg","Poor but Strong, starts with a SMG, +10% armor, +10% dodge, +10% damage, +10% attack speed, +3 health, 35% less coins", function(){
                     gun = [new SMG(0)];
                     playerStats.armor = 1.1;
-                    playerStats.dodge = 1.1;
+                    playerStats.dodge = 0.1;
                     playerStats.attackdelay = 1.1;
                     playerStats.damage = 1.1;
                     healthbar.currenthealth = 13;
