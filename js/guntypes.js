@@ -5,7 +5,7 @@ class Pistol extends Gun {
 }
 class SMG extends Gun {
     constructor(position) {
-        super("SMG", 3, 0.35, position, 15, smgimg, 50, 21);
+        super("SMG", 1, 0.11, position, 15, smgimg, 50, 21);
     }
 }
 class Shotgun extends Gun {
