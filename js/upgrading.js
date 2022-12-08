@@ -171,51 +171,8 @@ var upgrading = false;
 
 function upgrades() {
     paused = true;
-    var possibleupgrades = [];
-
-    for (var upgrade of upgradeoptions) {
-        if (upgrade.stacksleft > 0) {
-            for (var i = 0; i < upgrade.weight; i++) {
-                possibleupgrades.push(upgrade);
-            }
-        }
-    }
-    if (playerStats.exploding) {
-        for (var upgrade of explodingupgrades) {
-            if (upgrade.stacksleft > 0) {
-                for (var i = 0; i < upgrade.weight; i++) {
-                    possibleupgrades.push(upgrade);
-                }
-            }
-        }
-    }
-    if (playerStats.truevampire) {
-        for (var upgrade of vampireupgrades) {
-            if (upgrade.stacksleft > 0) {
-                for (var i = 0; i < upgrade.weight; i++) {
-                    possibleupgrades.push(upgrade);
-                }
-            }
-        }
-    }
-    console.log(possibleupgrades);
     wave++;
-    var temp = [];
-
-    temp[1] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
-    temp[2] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
-    temp[3] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
-    if (guns.length < playerStats.maxguns) {
-        temp[0] = gunoptions[Math.round(random(0, gunoptions.length - 1))];
-    } else {
-        temp[0] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
-    }
-    upgrading = true;
-    upgradechoices = [];
-    for (var t of temp) {
-        upgradechoices.push(new Upgrade(t.name, t.type, t.typecolor, t.description, t.img, t.effect, t.stacksleft, t.cost));
-
-    }
+    rerollupgrades();
 }
 
 
@@ -256,12 +213,15 @@ function rerollupgrades() {
             }
         }
     }
+    console.log(possibleupgrades);
+    
     var temp = [];
 
     temp[1] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
     temp[2] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
     temp[3] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
-    if (guns.length < 6) {
+    if (guns.length < playerStats.maxguns) {
+        console.log("BORK");
         temp[0] = gunoptions[Math.round(random(0, gunoptions.length - 1))];
     } else {
         temp[0] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
