@@ -78,10 +78,10 @@ class Flamethrower extends Gun {
     }
     shoot() {
         console.log(game.x, game.y);
-        game.data.push(new Projectile(30, 8, 6, this.damage, this.x + game.x + (Math.cos(this.angle) * 60), this.y + game.y + (Math.sin(this.angle) * 60), this.angle - 0.45, flameimg));
-        game.data.push(new Projectile(30, 8, 6, this.damage, this.x + game.x + (Math.cos(this.angle) * 60), this.y + game.y + (Math.sin(this.angle) * 60), this.angle - 0.3, flameimg));
-        game.data.push(new Projectile(30, 8, 6, this.damage, this.x + game.x + (Math.cos(this.angle) * 60), this.y + game.y + (Math.sin(this.angle) * 60), this.angle, flameimg));
-        game.data.push(new Projectile(30, 8, 6, this.damage, this.x + game.x + (Math.cos(this.angle) * 60), this.y + game.y + (Math.sin(this.angle) * 60), this.angle + 0.3, flameimg));
-        game.data.push(new Projectile(30, 8, 6, this.damage, this.x + game.x + (Math.cos(this.angle) * 60), this.y + game.y + (Math.sin(this.angle) * 60), this.angle + 0.45, flameimg));
+        game.data.push(new Projectile(30, 8, 6 * playerStats.bulletspeed, this.damage, this.x + game.x + (Math.cos(this.angle) * 60), this.y + game.y + (Math.sin(this.angle) * 60), this.angle - 0.45, flameimg));
+        game.data.push(new Projectile(30, 8, 6 * playerStats.bulletspeed, this.damage, this.x + game.x + (Math.cos(this.angle) * 60), this.y + game.y + (Math.sin(this.angle) * 60), this.angle - 0.3, flameimg));
+        game.data.push(new Projectile(30, 8, 6 * playerStats.bulletspeed, this.damage, this.x + game.x + (Math.cos(this.angle) * 60), this.y + game.y + (Math.sin(this.angle) * 60), this.angle, flameimg));
+        game.data.push(new Projectile(30, 8, 6 * playerStats.bulletspeed, this.damage, this.x + game.x + (Math.cos(this.angle) * 60), this.y + game.y + (Math.sin(this.angle) * 60), this.angle + 0.3, flameimg));
+        game.data.push(new Projectile(30, 8, 6 * playerStats.bulletspeed, this.damage, this.x + game.x + (Math.cos(this.angle) * 60), this.y + game.y + (Math.sin(this.angle) * 60), this.angle + 0.45, flameimg));
     }
 }
