@@ -66,14 +66,9 @@ function spawnEnemies() {
         }
     }
     if (wave == 7) {
-        if (time % 60 == 0) {
+        if(time % 4 == 0){
             var xy = randomEnemyXY();
-            enemies.push(new Tank(xy[0], xy[1]));
-            game.data.push(enemies[enemies.length - 1]);
-        }
-        if (time % 60 == 0) {
-            var xy = randomEnemyXY();
-            enemies.push(new AxeThrower(xy[0], xy[1]));
+            enemies.push(new Bat(xy[0], xy[1]));
             game.data.push(enemies[enemies.length - 1]);
         }
     }
