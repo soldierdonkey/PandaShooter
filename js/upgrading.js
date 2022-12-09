@@ -265,7 +265,7 @@ function rerollupgrades() {
             }
         }
         else{
-            temp[0] = knightweapons[Math.round(random(0, knightweapons.length - 1))];
+            temp[0] = gunoptions[Math.round(random(0, gunoptions.length - 1))];
         }
         
     } else {
