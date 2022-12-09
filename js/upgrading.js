@@ -188,9 +188,12 @@ var upgradeoptions = [
     new Upgrade("Speedy Shots", "Basic Upgrade", "lightgrey", "Upgrades your gun's bullet speed by 15%", "N/A", function() {
         playerStats.bulletspeed += 0.15;
     }, 10000, 45, 20),
-    new Upgrade("Strong Heart", "Basic Upgrade", "lightgrey", "+4 Health", "N/A", function() {
-        healthbar.maxhealth += 4;
+    new Upgrade("Stronger Heart", "Basic Upgrade", "lightgrey", "+2 Health", "N/A", function() {
+        healthbar.maxhealth += 2;
     }, 10000, 60, 20),
+    new Upgrade("Strong Heart", "Basic Upgrade", "lightgrey", "+1 Health", "N/A", function() {
+        healthbar.maxhealth += 1;
+    }, 10000, 35, 20),
     new Upgrade("Faster Regeneration", "Basic Upgrade", "lightgrey", "Increases Health Regeneration by 25%", "N/A", function() {
         playerStats.regeneration += 0.25;
     }, 10000, 75, 20),
