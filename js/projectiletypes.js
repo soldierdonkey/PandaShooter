@@ -50,7 +50,7 @@ class MeleeWeaponProjectile extends Projectile{
                 game.data.splice(game.data.indexOf(enemy), 1)
                 enemies.splice(enemies.indexOf(enemy), 1)
             }
-            game.data.splice(game.data.indexOf(this), 1);
+            // game.data.splice(game.data.indexOf(this), 1);
             return;
         }
     }
