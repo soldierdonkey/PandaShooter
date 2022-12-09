@@ -38,7 +38,7 @@ var gunoptions = [
     }, 10000, 250),
     new Upgrade("SMG", "Basic Gun", "lightgrey", "A Basic Machine Gun", "N/A", function() {
         guns.push(new SMG(guns.length));
-    }, 10000, 350),
+    }, 10000, 325),
     new Upgrade("Flamethr- ower", "Advanced Gun", "green", "A Fire Shooting Device, fire cannot explode", "N/A", function() {
         guns.push(new Flamethrower(guns.length));
     }, 10000, 450),
