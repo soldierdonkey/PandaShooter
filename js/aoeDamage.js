@@ -3,8 +3,8 @@ function dealAoeDamage(x, y, range, damage) {
     for (var e of enemies) {
         if (getDistance(x, y, e.x, e.y) < range) {
             e.health -= damage;
-            particlesystems.push(new ParticleSystem(e));
-            particlesystems[particlesystems.length - 1].setup();
+            // particlesystems.push(new ParticleSystem(e));
+            // particlesystems[particlesystems.length - 1].setup();
             if ((healthbar.currenthealth + (damage * playerStats.lifesteal * playerStats.explodinglifesteal)) < healthbar.maxhealth) {
                 healthbar.currenthealth += damage * playerStats.lifesteal * playerStats.explodinglifesteal;
             } else {

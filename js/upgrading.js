@@ -17,6 +17,17 @@ var playerStats = {
 }
 
 
+var knightweapons = [
+    new Upgrade("Sword", "Advanced Weapon", "green", "A sword of a true knight", "N/A", function(){
+        guns.push(new KnightSword(guns.length));
+    },10000,300)
+]
+
+var assassinweapons = [
+    new Upgrade("Dagger", "Advanced Weapon", "green", "A dagger of an assassin", "N/A", function(){
+        guns.push(new AssassinDagger(guns.length));
+    },10000,300)
+]
 
 var gunoptions = [
     new Upgrade("Pistol", "Basic Gun", "lightgrey", "A Basic Pistol", "N/A", function() {
@@ -37,6 +48,7 @@ var explodingupgrades = [
         playerStats.explosionrange += 0.2;
     }, 10000, 150, 10),
 ]
+
 var vampireupgrades = [
 
     new Upgrade("God of Vampires", "Legendary Upgrade", "orange", "+25% Lifesteal but exploding bullets have an tenth of the lifesteal, but -3 Health, -50% health regeneration and -20% damage", "N/A", function() {
@@ -239,8 +251,23 @@ function rerollupgrades() {
     temp[2] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
     temp[3] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
     if (guns.length < playerStats.maxguns) {
-        console.log("BORK");
-        temp[0] = gunoptions[Math.round(random(0, gunoptions.length - 1))];
+        if(charactertype == "knight"){
+            if(Math.random() > 0.5){
+                temp[0] = gunoptions[Math.round(random(0, gunoptions.length - 1))];
+            }else{
+                temp[0] = knightweapons[Math.round(random(0, knightweapons.length - 1))];
+            }
+        }else if(charactertype == "assassin"){
+            if(Math.random() > 0.5){
+                temp[0] = gunoptions[Math.round(random(0, gunoptions.length - 1))];
+            }else{
+                temp[0] = assassinweapons[Math.round(random(0, assassinweapons.length - 1))];
+            }
+        }
+        else{
+            temp[0] = knightweapons[Math.round(random(0, knightweapons.length - 1))];
+        }
+        
     } else {
         temp[0] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
     }

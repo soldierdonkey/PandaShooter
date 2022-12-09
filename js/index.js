@@ -52,6 +52,9 @@ var w15bossimg;
 var tank2img;
 var characters = [];
 var characterLookingAt = "N/A";
+var knightswordimg;
+var chractertype = "N/A";
+var assassindaggerimg;
 
 function preload() {
     backgroundImg = loadImage("img/background.png");
@@ -99,6 +102,8 @@ function preload() {
     flameimg = loadImage("img/flame.png");
     w15bossimg = loadImage("img/wave15boss.png");
     tank2img = loadImage("img/tankv2.png");
+    knightswordimg = loadImage("img/knightsword.png");
+    assassindaggerimg = loadImage("img/dagger.png");
 }
 var damagetaken = 0;
 var coinscollected = 0;
@@ -108,12 +113,14 @@ var upgradetimes = 0;
 function setup() {
     guns = [new Pistol(0)];
     characters.push(new Character("Default","a normal egg", function(){}));
-    characters.push(new Character("Assassin","Assassin, starts with pistol, +50% movement speed, +100% damage, -75% armor, -5 health", function(){
+    characters.push(new Character("Assassin","Assassin, starts with a dagger, +50% movement speed, +100% damage, -75% armor, -5 health", function(){
+        guns = [new AssassinDagger(0)];
         playerStats.movementspeed = 1.5;
         playerStats.damage = 2;
         playerStats.armor = 0.25;
         healthbar.maxhealth = 5;
         healthbar.currenthealth = 5;
+        charactertype = "assassin";
     }));
     characters.push(new Character("Bullet Rain","an egg that really like bullets, start with an SMG, +50% attack speed, -50% damage, -2 health", function(){
         guns = [new SMG(0)];
@@ -141,13 +148,14 @@ function setup() {
             playerStats.attackdelay = 0.8;
             playerStats.maxguns  = 3;
             }));
-            characters.push(new Character("Knight","heavily armored egg, starts with a pistol, -20% movement speed, +100% armor, -100% dodge, -50% attack speed, +10% damage", function(){
-                guns = [new Pistol(0)];
+            characters.push(new Character("Knight","heavily armored egg, starts with a sword, -20% movement speed, +100% armor, -100% dodge, -50% attack speed, +10% damage", function(){
+                guns = [new KnightSword(0)];
                 playerStats.armor = 2;
                 playerStats.dodge = -1;
                 playerStats.attackdelay = 0.5;
                 playerStats.damage = 1.1;
                 playerStats.movementspeed = 0.8;
+                charactertype = "knight";
                 }));
                 characters.push(new Character("Poor Egg","Poor but Strong, starts with a SMG, +10% armor, +10% dodge, +10% damage, +10% attack speed, +3 health, 35% less coins", function(){
                     guns = [new SMG(0)];
@@ -177,6 +185,7 @@ function setup() {
 }
 
 function draw() {
+    
     for (var p of game.data) {
         if (p instanceof Projectile || p instanceof BombProjectile || p instanceof EnemyProjectile) {
             if (p.x < game.x || p.y < game.y || p.x > game.x + game.sw || p.y > game.y + game.sh) {
@@ -459,11 +468,12 @@ function mousePressed() {
             }
         }
         if (mouseX > 750 && mouseX < 900 && mouseY > 100 && mouseY < 160) {
-            upgrading = false;
-            paused = false;
             if (!normalmusic.isPlaying()) {
                 normalmusic.play();
             }
+            upgrading = false;
+            paused = false;
+            
         }
         if (mouseX > 150 && mouseX < 300 && mouseY > 100 && mouseY < 160) {
             if (coins >= 20) {
@@ -475,23 +485,26 @@ function mousePressed() {
     }
     if (start) {
         if (mouseX > 350 && mouseX < 650 && mouseY > 520 && mouseY < 620) {
-            if (!normalmusic.isPlaying()) {
-                normalmusic.play();
-            }
+            
             choosingcharacter = true;
             start = false;
+            
         }
     }
     if(choosingcharacter){
         for(var character of characters){
             if(character.checkHover()){
                 characterLookingAt = character;
+                
             }
         }
         if(mouseX > 800 && mouseX < 940&& mouseY > 30 && mouseY < 80 && characterLookingAt != "N/A"){
             choosingcharacter = false;
             paused = false;
             characterLookingAt.choose();
+            if (!normalmusic.isPlaying()) {
+                normalmusic.play();
+            }
         }
     }
 
