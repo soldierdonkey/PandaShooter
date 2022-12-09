@@ -104,6 +104,7 @@ var upgradeoptions = [
         }
         playerStats.armor += 0.2;
     }, 3, 125, 14),
+    
     new Upgrade("Insane Reflexes", "Advanced Upgrade", "green", "Dodge 5% of incomming attacks", "N/A", function() {
         playerStats.dodge += 0.05;
     }, 10, 150, 14),
@@ -138,6 +139,9 @@ var upgradeoptions = [
         playerStats.regeneration -= 1.5;
         if (healthbar.currenthealth > healthbar.maxhealth) { healthbar.currenthealth = healthbar.maxhealth; }
     }, 1, 350, 5),
+    new Upgrade("health Boost", "Basic Upgrade", "lightgrey", "+1 Health", "N/A", function() {
+        healthbar.maxhealth += 1;
+    }, 10000, 30, 40),
     new Upgrade("Obsidian Heart", "Epic Set Upgrade", "lightblue", "-5% lifesteal, but +20 Health and -50% health regen", "N/A", function() {
         playerStats.lifesteal -= 0.05;
         healthbar.maxhealth += 20;
