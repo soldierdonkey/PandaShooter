@@ -18,7 +18,7 @@ function spawnEnemies() {
         }
     }
     if (wave == 3) {
-        if (time % 50 == 0) {
+        if (time % 90 == 0) {
             var xy = randomEnemyXY();
             enemies.push(new Bat(xy[0], xy[1]));
             game.data.push(enemies[enemies.length - 1]);
