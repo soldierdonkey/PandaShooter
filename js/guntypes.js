@@ -7,6 +7,13 @@ class SMG extends Gun {
     constructor(position) {
         super("SMG", 3, 0.35, position, 15, smgimg, 50, 21);
     }
+    shoot() {
+        if (playerStats.exploding && Math.random() < 0.25) {
+            game.data.push(new BombProjectile(30, this.speed * playerStats.bulletspeed, this.damage * playerStats.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle) + random(-0.15,0.15)));
+        } else {
+            game.data.push(new Projectile(10, 30, this.speed * playerStats.bulletspeed, this.damage * playerStats.damage, this.x + game.x, this.y + game.y, simplifyAngle(this.angle) + random(-0.15,0.15)));
+        }
+    }
 }
 class Shotgun extends Gun {
     constructor(position) {
