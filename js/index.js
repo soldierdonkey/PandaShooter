@@ -53,7 +53,7 @@ var tank2img;
 var characters = [];
 var characterLookingAt = "N/A";
 var knightswordimg;
-var chractertype = "N/A";
+var charactertype = "N/A";
 var assassindaggerimg;
 
 function preload() {
