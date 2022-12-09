@@ -38,7 +38,7 @@ var gunoptions = [
     }, 10000, 250),
     new Upgrade("SMG", "Basic Gun", "lightgrey", "A Basic Machine Gun", "N/A", function() {
         guns.push(new SMG(guns.length));
-    }, 10000, 250),
+    }, 10000, 350),
     new Upgrade("Flamethr- ower", "Advanced Gun", "green", "A Fire Shooting Device, fire cannot explode", "N/A", function() {
         guns.push(new Flamethrower(guns.length));
     }, 10000, 450),
@@ -47,6 +47,22 @@ var explodingupgrades = [
     new Upgrade("Better Explosions", "Advanced Upgrade", "green", "20% more explosion range", "N/A", function() {
         playerStats.explosionrange += 0.2;
     }, 10000, 150, 10),
+]
+
+var smgupgrades = [
+    new Upgrade("Minigun", "Advanced Gun Upgrade", "green", "An upgraded SMG", "N/A", function() {
+        var t = "N/A";
+        for(var gun of guns){
+            console.log(gun);
+            console.log(gun.name == "SMG");
+            if(gun.name == "SMG"){
+                t = guns.indexOf(gun);
+            }
+        }
+        if(t != "N/A"){
+            guns[t] = new Minigun(t);
+        }
+    }, 10000, 700)
 ]
 
 var vampireupgrades = [
@@ -245,6 +261,23 @@ function rerollupgrades() {
                 }
             }
         }
+    }
+    var smgowned = false;
+    for(var gun of guns){
+        if(gun instanceof SMG){
+            smgowned = true;
+        }
+    }
+    if(smgowned){
+        possibleupgrades.push(smgupgrades[0]);
+        possibleupgrades.push(smgupgrades[0]);
+        possibleupgrades.push(smgupgrades[0]);
+        possibleupgrades.push(smgupgrades[0]);
+        possibleupgrades.push(smgupgrades[0]);
+        possibleupgrades.push(smgupgrades[0]);
+        possibleupgrades.push(smgupgrades[0]);
+        possibleupgrades.push(smgupgrades[0]);
+        possibleupgrades.push(smgupgrades[0]);
     }
     console.log(possibleupgrades);
     
