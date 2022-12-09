@@ -42,8 +42,8 @@ class MeleeWeaponProjectile extends Projectile{
             } else {
                 healthbar.currenthealth = healthbar.maxhealth;
             }
-            // particlesystems.push(new ParticleSystem(enemy));
-            // particlesystems[particlesystems.length - 1].setup();
+            particlesystems.push(new ParticleSystem(enemy));
+            particlesystems[particlesystems.length - 1].setup();
             if (enemy.health <= 0) {
                 enemieskilled++;
                 game.data.push(new Collectable(enemy.x, enemy.y, enemy.value))
