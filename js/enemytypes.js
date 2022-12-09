@@ -21,7 +21,7 @@ class Bat extends Enemy {
 
 class Tank extends Enemy {
     constructor(x, y) {
-        super(x, y, 5 * wavehealthmulti, 0.5 * wavedamagemulti, tankImgs, 30, random(0.5, 1.5))
+        super(x, y, 15 * wavehealthmulti, 0.1 * wavedamagemulti, tankImgs, 30, random(0.5, 1.5))
         this.h = 60;
         if (wave < 4) {
             this.value = 5;
@@ -180,7 +180,7 @@ class W15Boss extends Enemy {
 
 class Tank2 extends Enemy {
     constructor(x, y) {
-        super(x, y, 12 * wavehealthmulti, 1 * wavedamagemulti, [tank2img], 30, random(1, 1.75))
+        super(x, y, 24 * wavehealthmulti, 0.5 * wavedamagemulti, [tank2img], 30, random(1, 1.75))
         this.h = 70;
         if (wave < 16) {
             this.value = 6;
