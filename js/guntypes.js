@@ -160,5 +160,21 @@ class KnightSword extends MeleeWeapon{
 class AssassinDagger extends MeleeWeapon{
     constructor(position){
         super("Dagger",1,0.1,position, 40,assassindaggerimg,100,40,2);
+        this.throwProgress = 0;
+        this.throwAngle = 0;
+    }
+    throw(){
+        if(/*event*/) {
+            this.throwProgress = 1;
+            this.throwAngle = atan2((mouseY) - (this.y), (mouseX) - (this.x));
+        }
+        if(this.throwProgress > 0){
+            this.w += sin(this.throwAngle);
+            this.h += cos(this.throwAngle);
+            if(this.throwProgress > 500) {
+                this.throwProgress = 0;
+            }
+            this.throwProgress++;
+        }
     }
 }
