@@ -18,15 +18,15 @@ var playerStats = {
 
 
 var knightweapons = [
-    new Upgrade("Sword", "Advanced Weapon", "green", "A sword of a true knight", "N/A", function(){
+    new Upgrade("Sword", "Advanced Weapon", "green", "A sword of a true knight", "N/A", function() {
         guns.push(new KnightSword(guns.length));
-    },10000,300)
+    }, 10000, 275)
 ]
 
 var assassinweapons = [
-    new Upgrade("Dagger", "Advanced Weapon", "green", "A dagger of an assassin", "N/A", function(){
+    new Upgrade("Dagger", "Advanced Weapon", "green", "A dagger of an assassin", "N/A", function() {
         guns.push(new AssassinDagger(guns.length));
-    },10000,300)
+    }, 10000, 275)
 ]
 
 var gunoptions = [
@@ -38,10 +38,10 @@ var gunoptions = [
     }, 10000, 250),
     new Upgrade("SMG", "Basic Gun", "lightgrey", "A Basic Machine Gun", "N/A", function() {
         guns.push(new SMG(guns.length));
-    }, 10000, 325),
+    }, 10000, 300),
     new Upgrade("Flamethr- ower", "Advanced Gun", "green", "A Fire Shooting Device, fire cannot explode", "N/A", function() {
         guns.push(new Flamethrower(guns.length));
-    }, 10000, 450),
+    }, 10000, 350),
 ]
 var explodingupgrades = [
     new Upgrade("Better Explosions", "Advanced Upgrade", "green", "20% more explosion range", "N/A", function() {
@@ -52,14 +52,14 @@ var explodingupgrades = [
 var smgupgrades = [
     new Upgrade("Minigun", "Advanced Gun Upgrade", "green", "An upgraded SMG", "N/A", function() {
         var t = "N/A";
-        for(var gun of guns){
+        for (var gun of guns) {
             console.log(gun);
             console.log(gun.name == "SMG");
-            if(gun.name == "SMG"){
+            if (gun.name == "SMG") {
                 t = guns.indexOf(gun);
             }
         }
-        if(t != "N/A"){
+        if (t != "N/A") {
             guns[t] = new Minigun(t);
         }
     }, 10000, 700)
@@ -161,12 +161,12 @@ var upgradeoptions = [
     }, 10000, 450, 3),
     new Upgrade("Obsidian Armor", "Epic Set Upgrade", "lightblue", "-5% lifesteal, but +50% armor and -50% health regen", "N/A", function() {
         playerStats.lifesteal -= 0.05;
-        playerStats.armor +=0.5;
+        playerStats.armor += 0.5;
         playerStats.regeneration -= 0.5;
     }, 10000, 450, 3),
     new Upgrade("Obsidian Weaponry", "Epic Set Upgrade", "lightblue", "-5% lifesteal, but +20% damage and -50% health regen", "N/A", function() {
         playerStats.lifesteal -= 0.05;
-        playerStats.damage +=0.2;
+        playerStats.damage += 0.2;
         playerStats.regeneration -= 0.5;
     }, 10000, 450, 3),
     new Upgrade("Steel Heart", "Advanced Set Upgrade", "green", "-2% lifesteal, but +8 Health and -30% health regen", "N/A", function() {
@@ -176,17 +176,17 @@ var upgradeoptions = [
     }, 10000, 250, 10),
     new Upgrade("Steel Armor", "Advanced Set Upgrade", "green", "-2% lifesteal, but +20% armor and -30% health regen", "N/A", function() {
         playerStats.lifesteal -= 0.02;
-        playerStats.armor +=0.2;
+        playerStats.armor += 0.2;
         playerStats.regeneration -= 0.3;
     }, 10000, 250, 10),
     new Upgrade("Steel Weaponry", "Advanced Set Upgrade", "green", "-2% lifesteal, but +15% damage and -30% health regen", "N/A", function() {
         playerStats.lifesteal -= 0.02;
-        playerStats.damage +=0.15;
+        playerStats.damage += 0.15;
         playerStats.regeneration -= 0.3;
     }, 10000, 250, 10),
     new Upgrade("Armor of the Panda Hero", "Legendary Set Upgrade", "orange", "-10% lifesteal, but +80% armor, -10% dodge, and +25% damage", "N/A", function() {
         playerStats.lifesteal -= 0.1;
-        playerStats.armor +=0.8;
+        playerStats.armor += 0.8;
         playerStats.dodge -= 0.1;
         playerStats.damage += 0.25;
     }, 1, 1000, 1),
@@ -213,7 +213,10 @@ var upgradeoptions = [
     new Upgrade("Faster Regeneration", "Basic Upgrade", "lightgrey", "Increases Health Regeneration by 25%", "N/A", function() {
         playerStats.regeneration += 0.25;
     }, 10000, 75, 20),
-   
+    new Upgrade("Stronger Armor", "Basic Upgrade", "lightgrey", "+5% Armor", "N/A", function() {
+        playerStats.armor += 0.05;
+    }, 10000, 80, 20),
+
 ];
 var currentupgradechoices = [];
 var upgrading = false;
@@ -263,12 +266,12 @@ function rerollupgrades() {
         }
     }
     var smgowned = false;
-    for(var gun of guns){
-        if(gun instanceof SMG){
+    for (var gun of guns) {
+        if (gun instanceof SMG) {
             smgowned = true;
         }
     }
-    if(smgowned){
+    if (smgowned) {
         possibleupgrades.push(smgupgrades[0]);
         possibleupgrades.push(smgupgrades[0]);
         possibleupgrades.push(smgupgrades[0]);
@@ -280,30 +283,29 @@ function rerollupgrades() {
         possibleupgrades.push(smgupgrades[0]);
     }
     console.log(possibleupgrades);
-    
+
     var temp = [];
 
     temp[1] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
     temp[2] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
     temp[3] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
     if (guns.length < playerStats.maxguns) {
-        if(charactertype == "knight"){
-            if(Math.random() > 0.5){
+        if (charactertype == "knight") {
+            if (Math.random() > 0.5) {
                 temp[0] = gunoptions[Math.round(random(0, gunoptions.length - 1))];
-            }else{
+            } else {
                 temp[0] = knightweapons[Math.round(random(0, knightweapons.length - 1))];
             }
-        }else if(charactertype == "assassin"){
-            if(Math.random() > 0.5){
+        } else if (charactertype == "assassin") {
+            if (Math.random() > 0.5) {
                 temp[0] = gunoptions[Math.round(random(0, gunoptions.length - 1))];
-            }else{
+            } else {
                 temp[0] = assassinweapons[Math.round(random(0, assassinweapons.length - 1))];
             }
-        }
-        else{
+        } else {
             temp[0] = gunoptions[Math.round(random(0, gunoptions.length - 1))];
         }
-        
+
     } else {
         temp[0] = possibleupgrades[Math.round(random(0, possibleupgrades.length - 1))];
     }

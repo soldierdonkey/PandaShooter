@@ -129,11 +129,11 @@ var upgradetimes = 0;
 function setup() {
     guns = [new Pistol(0)];
     characters.push(new Character("Default", "a normal egg", function() {}));
-    characters.push(new Character("Assassin", "Assassin, starts with a dagger, +50% movement speed, +100% damage, -75% armor, -5 health", function() {
+    characters.push(new Character("Assassin", "Assassin, starts with a dagger, +50% movement speed, +150% damage, -50% armor, -5 health", function() {
         guns = [new AssassinDagger(0)];
         playerStats.movementspeed = 1.5;
-        playerStats.damage = 2;
-        playerStats.armor = 0.25;
+        playerStats.damage = 2.5;
+        playerStats.armor = 0.5;
         healthbar.maxhealth = 5;
         healthbar.currenthealth = 5;
         charactertype = "assassin";
