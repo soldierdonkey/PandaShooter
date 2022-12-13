@@ -129,7 +129,7 @@ var upgradetimes = 0;
 function setup() {
     guns = [new Pistol(0)];
     characters.push(new Character("Default", "a normal egg", function() {}));
-    characters.push(new Character("Assassin", "Assassin, starts with a dagger, +50% movement speed, +150% damage, -50% armor, -5 health", function() {
+    characters.push(new Character("Assassin", "Assassin, starts with a dagger, +50% movement speed, +150% damage, half armor, -5 health", function() {
         guns = [new AssassinDagger(0)];
         playerStats.movementspeed = 1.5;
         playerStats.damage = 2.5;
@@ -138,20 +138,20 @@ function setup() {
         healthbar.currenthealth = 5;
         charactertype = "assassin";
     }));
-    characters.push(new Character("Bullet Rain", "an egg that really like bullets, start with an SMG, +50% attack speed, -50% damage, -2 health", function() {
+    characters.push(new Character("Bullet Rain", "an egg that really like bullets, start with an SMG, +50% attack speed, half damage, -2 health", function() {
         guns = [new SMG(0)];
         playerStats.attackdelay = 1.5;
         playerStats.damage = 0.5;
         healthbar.currenthealth = 8;
         healthbar.maxhealth = 8;
     }));
-    characters.push(new Character("Pyromancer", "an egg that really likes fire, starts with a flame thrower, -50% attack speed, -40% armor, no base health regeneration", function() {
+    characters.push(new Character("Pyromancer", "an egg that really likes fire, starts with a flame thrower, -25% attack speed, -40% armor, no base health regeneration", function() {
         guns = [new Flamethrower(0)];
         playerStats.attackdelay = 0.75;
         playerStats.armor = 0.6;
         playerStats.regeneration = 0;
     }));
-    characters.push(new Character("Sniper", "a high precision sniper egg, starts with a pistol, -100% attack speed, +150% damage, +100% bullet speed", function() {
+    characters.push(new Character("Sniper", "a high precision sniper egg, starts with a pistol, -50% attack speed, +150% damage, double bullet speed", function() {
         guns = [new Pistol(0)];
         playerStats.attackdelay = 0.5;
         playerStats.damage = 2.5;
@@ -164,7 +164,7 @@ function setup() {
         playerStats.attackdelay = 0.8;
         playerStats.maxguns = 3;
     }));
-    characters.push(new Character("Knight", "heavily armored egg, starts with a sword, -20% movement speed, +100% armor, -100% dodge, -50% attack speed, +10% damage", function() {
+    characters.push(new Character("Knight", "heavily armored egg, starts with a sword, -20% movement speed, double armor, -100% dodge, half attack speed, +10% damage", function() {
         guns = [new KnightSword(0)];
         playerStats.armor = 2;
         playerStats.dodge = -1;
@@ -183,9 +183,9 @@ function setup() {
         healthbar.maxhealth = 13;
         playerStats.coinmulti = 0.65;
     }));
-    characters.push(new Character("God", "Literally God for testing you can play around with it if you want, Starts on round 15, Starts with no a pistol that can't shoot, has 100% dodge chance, has -100000000 coins", function() {
+    characters.push(new Character("God", "Literally God for testing you can play around with it if you want, Starts on round 15, Starts with nuuuuuuuuuuu, a pistol that can't shoot, has 100% dodge chance, has negative infinite coins", function() {
         gun = [];
-        coins -= 100000000
+        coins = -Infinity
         wave = 15;
         time = 3600;
         playerStats.attackdelay = 0;
