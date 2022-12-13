@@ -138,7 +138,7 @@ function setup() {
         healthbar.currenthealth = 5;
         charactertype = "assassin";
     }));
-    characters.push(new Character("Bullet Rain", "an egg that really like bullets, start with an SMG, +50% attack speed, -50% damage, -2 health", function() {
+    characters.push(new Character("Bullet Rain", "an egg that really likes bullets, start with an SMG, +50% attack speed, -50% damage, -2 health", function() {
         guns = [new SMG(0)];
         playerStats.attackdelay = 1.5;
         playerStats.damage = 0.5;
