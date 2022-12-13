@@ -82,7 +82,7 @@ class AxeThrower extends Enemy {
     }
     shoot() {
         var angle = atan2((player.y) - (this.y - game.y), (player.x) - (this.x - game.x));
-        game.data.push(new EnemyProjectile(40, this.x, this.y, this.damage, 10, angle, axeimg));
+        game.data.push(new EnemyProjectile(30, this.x, this.y, this.damage, 10, angle, axeimg));
     }
 }
 class Sprayer extends Enemy {
